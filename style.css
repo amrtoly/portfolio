@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+body {
+    background: #080708;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 15px 90px; /* Üst ve alt boşluk */
+}
+
+.logo {
+    width: 55px;
+    margin-right: auto; /* Logo solda kalırken navbar'ı sağa it */
+}
+
+.navbar {
+    display: flex;
+    gap: 20px; /* Navbar öğeleri arasındaki boşluk */
+    margin-left: auto; /* Navbar öğelerini sağa çek */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Raleway';
+    transition: 0.5s ease;
+}
+
+.navbar a.active {
+    border-bottom: 2px solid rgb(250, 210, 31); /* Alt çizgi rengi ve kalınlığı */
+    padding-bottom: 3px; /* Alt çizgi ile metin arasında boşluk */
+    color: rgb(250, 210, 31);
+}
+
+.navbar a:not(.active):hover {
+    color: rgb(200, 200, 200); /* Aktif olmayan bağlantılara üzerine gelindiğinde renk değişimi */
+}
+
+.container {
+    display: flex; /* Flexbox ile yan yana yerleştirmek için */
+    align-items: center; /* Dikey olarak ortalamak için */
+    margin: 20px auto; /* Üstten boşluk ve yatay ortalama */
+    max-width: 800px; /* İstediğiniz maksimum genişlik */
+    width: 100%; /* Tüm genişliği kaplasın */
+}
+
+.profile-section {
+    background: url(profile.jpg) no-repeat center; /* Arka plan resmini ortalar */
+    background-size: cover; /* Resmin boyutunu kapsayıcı hale getirir */
+    width: 220px; /* İstediğiniz genişlik */
+    height: 220px; /* İstediğiniz yükseklik */
+    border-radius: 50%; /* Daire şekli için */
+    margin-right: 20px; /* Metin ile profil fotoğrafı arasında boşluk */
+    margin-left: 60px; /* Sol taraftan boşluğu artırdık */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.info-section {
+    color: white; /* Yazı rengini beyaz yap */
+    font-family: 'Raleway';    
+}
+
+.info-section span {
+    color: rgb(250, 210, 31);
+}
+
+.info-section h1 {
+    margin-bottom: 5px; /* H1 ile H3 arasındaki boşluğu azalt */
+}
+
+.info-section h3 {
+    margin-top: 0; /* H3'ün üst marjını sıfırlayarak boşluğu azalt */
+}
+
+.social-container {
+    display: flex; /* Social div'lerini yan yana yerleştirmek için */
+    margin-top: 10px; /* Üstten biraz boşluk bırakmak için */
+}
+
+.social {
+    width: 40px; /* İstediğiniz genişlik */
+    height: 40px; /* İstediğiniz yükseklik */
+    border: 2px solid rgb(250, 210, 31); /* Kenar rengi ve kalınlığı */
+    border-radius: 50%; /* Yuvarlak yapar */
+    display: flex; /* İçindeki ikonu ortalamak için */
+    justify-content: center; /* Yatayda ortalama */
+    align-items: center; /* Dikeyde ortalama */
+    margin: 0 5px; /* Sol ve sağda boşluk bırakmak için */
+}
+
+.social a {
+    color: white;
+    font-size: 22px;
+    transition: 0.5s ease;
+}
+
+.social a:hover{
+    color: rgb(250, 210, 31);
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: rgb(250, 210, 31); /* Cursor rengini ayarlayın */
+    margin-left: 2px;
+    animation: blink 0.7s steps(1) infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .navbar {
+        display: none;
+        transition: 0.5s ease;
+    }
+
+    .logo {
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        transition: 0.5s ease;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        margin: 20px auto;
+        max-width: 800px;
+        width: 100%;
+        transition: 0.5s ease;
+    }
+
+    .profile-section {
+        width: 125px;
+        height: 125px;
+        border-radius: 50%;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .info-section {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+}

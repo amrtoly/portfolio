@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/9f9f3058e2.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="codeverse.png">
+    <link rel="stylesheet" href="style.css">
+    <title>MrToly</title>
+</head>
+<body>
+    <nav>
+        <img src="codeverse.png" class="logo">
+
+        <div class="navbar">
+            <a href="index.html" class="active">Home</a>
+            <a href="skills/">Skills</a>
+            <a href="experience/">Experience</a>
+            <a href="contact/">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container"> <!-- Yeni bir konteyner oluşturuyoruz -->
+        <div class="profile-section"></div>
+        <div class="info-section"> <!-- Bilgi kısmını buraya ekliyoruz -->
+            <h1>Hi, ıt's <span>MrToly</span></h1>
+            <h3>I'm a <span>front-end developer</span></h3>
+
+            <div class="social-container">
+                <div class="social"><a href="https://www.instagram.com/mrtolyy" target="_blank"><i class="fa-brands fa-instagram"></i></a></div>
+                <div class="social"><a href="https://www.x.com/mrtolyy" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></div>
+                <div class="social"><a href="https://www.github.com/amrtoly" target="_blank"><i class="fa-brands fa-github"></i></a></div>
+                <div class="social"><a href="https://www.youtube.com/@acodeverse" target="_blank"><i class="fa-brands fa-youtube"></i></a></div>
+            </div>
+        </div>
+
+       
+
+
+    </div>
+
+ 
+    <script>
+     document.addEventListener("DOMContentLoaded", function() {
+    const textSpan = document.querySelector(".info-section h3 span");
+    const cursor = document.createElement("span");
+    cursor.classList.add("cursor");
+    cursor.textContent = "|";
+    textSpan.parentElement.appendChild(cursor);
+
+    const texts = ["front-end developerr", "web designerr"];
+    let index = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeEffect() {
+        const currentText = texts[index];
+        
+        // Yazma ve silme koşulları
+        if (!deleting && charIndex <= currentText.length) {
+            textSpan.textContent = currentText.substring(0, charIndex++);
+            if (charIndex === currentText.length) {
+                deleting = true;
+                setTimeout(typeEffect, 2000); // Tamamlanan kelime sonrası bekleme süresi
+                return;
+            }
+        } else if (deleting && charIndex >= 0) {
+            textSpan.textContent = currentText.substring(0, charIndex--);
+            if (charIndex === -1) {
+                deleting = false;
+                index = (index + 1) % texts.length; // Bir sonraki kelimeye geç
+                charIndex = 0;
+            }
+        }
+
+        // Animasyon hızı ayarlamaları
+        setTimeout(typeEffect, deleting ? 75 : 150); // Silme hızlı, yazma yavaş
+    }
+
+    typeEffect();
+});
+
+
+
+    </script>
+
+</body>
+</html>
